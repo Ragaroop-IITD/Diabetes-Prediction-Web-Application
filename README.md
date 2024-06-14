@@ -1,5 +1,3 @@
-# Diabetes-prediction-app
-This Flask web application predicts the likelihood of diabetes based on input features such as glucose level, blood pressure, BMI, etc. It utilizes a machine learning model trained on relevant medical data.
 
 # Diabetes Prediction Web Application
 
@@ -26,12 +24,12 @@ Follow these steps to run the application locally:
 
 1. Clone the repository:
    ```
-   git clone https://github.com/your-username/diabetes-prediction-app.git
+   https://github.com/Ragaroop-IITD/Diabetes-Prediction-Web-Application.git
    ```
    
 2. Navigate into the project directory:
    ```
-   cd diabetes-prediction-app
+   cd Diabetes-Prediction-Web-Application
    ```
 
 3. Install dependencies using pip:
