@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diabetes Prediction</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="text">
+      <h2>Diabetes Prediction</h2>
+    </div>
+
+    <form action="#">
+      <div class="form-row">
+        <div class="input-data">
+          <input type="number" id="pregnancies" step="any" required />
+          <div class="underline"></div>
+          <label for="">Number of Pregnancies</label>
+        </div>
+        <div class="input-data">
+          <input type="number" id="glucose" step="any" required />
+          <div class="underline"></div>
+          <label for="">Glucose Level</label>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="input-data">
+          <input type="number" id="blood_pressure" step="any" required />
+          <div class="underline"></div>
+          <label for="">Blood Pressure</label>
+        </div>
+        <div class="input-data">
+          <input type="number" id="skin_thickness" step="any" required />
+          <div class="underline"></div>
+          <label for="">Skin Thickness</label>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="input-data">
+          <input type="number" id="insulin" step="any" required />
+          <div class="underline"></div>
+          <label for="">Insuline Level</label>
+        </div>
+        <div class="input-data">
+          <input type="number" id="bmi" step="any" required />
+          <div class="underline"></div>
+          <label for="">BMI</label>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="input-data">
+          <input type="number" id="dpf" step="any" required />
+          <div class="underline"></div>
+          <label for="">Diabetes Pedigree Function</label>
+        </div>
+        <div class="input-data">
+          <input type="number" id="age" step="any" required />
+          <div class="underline"></div>
+          <label for="">Age</label>
+        </div>
+      </div>
+    </form>
+
+    <button onclick="predict()">Predict</button>
+    <p id="result"></p>
+  </div>
+  <script>
+    function predict() {
+      const inputData = [
+        parseFloat(document.getElementById("pregnancies").value),
+        parseFloat(document.getElementById("glucose").value),
+        parseFloat(document.getElementById("blood_pressure").value),
+        parseFloat(document.getElementById("skin_thickness").value),
+        parseFloat(document.getElementById("insulin").value),
+        parseFloat(document.getElementById("bmi").value),
+        parseFloat(document.getElementById("dpf").value),
+        parseFloat(document.getElementById("age").value),
+      ];
+
+      fetch("/predict", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ input_data: inputData }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          document.getElementById("result").innerText = data.prediction;
+          document.getElementById("result").style.display = "block";
+        });
+    }
+  </script>
+</body>
+
+</html>
