@@ -1,7 +1,7 @@
 
 # Diabetes Prediction Web Application
 
-![Demo](demo.gif)
+![Demo](screenshots/HomePage.png)
 
 ## Overview
 This Flask web application predicts the likelihood of diabetes based on input features such as glucose level, blood pressure, BMI, etc. It utilizes a machine learning model trained on relevant medical data.
@@ -61,6 +61,8 @@ Follow these steps to run the application locally:
 │     └── style.css
 ├── templates              # HTML templates
 │   └── index.html
+├── screenshots              
+│   └── ...
 └── README.md              # Project documentation
 ```
 
